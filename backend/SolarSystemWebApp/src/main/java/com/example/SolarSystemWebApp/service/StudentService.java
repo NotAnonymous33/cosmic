@@ -45,6 +45,8 @@ public class StudentService {
     public Student newStudent(StudentData data) {
         Student student = new Student();
         student.setName(data.getName());
+        student.setUsername(data.getEmail());
+        student.setPassword(data.getPassword());
         student.setProgress(0);
         student.setLessonsCompleted(new ArrayList<>());
         return studentRepository.save(student);
