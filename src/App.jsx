@@ -3,7 +3,7 @@ import Login from "./Login.jsx";
 import Info from "./Info.jsx";
 
 import {NavLink, Route, Routes, useLocation} from "react-router-dom";
-import Temp from "./Temp.jsx";
+
 
 function App() {
 
