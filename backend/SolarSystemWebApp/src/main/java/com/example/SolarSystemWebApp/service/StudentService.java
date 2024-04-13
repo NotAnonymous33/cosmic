@@ -22,6 +22,9 @@ public class StudentService {
     @Autowired
     private LessonService lessonService;
 
+    @Autowired
+    private PasswordHasherService passwordHasherService;
+
     public List<Student> getAllStudents() {
         return studentRepository.findAll();
     }
@@ -46,7 +49,7 @@ public class StudentService {
         Student student = new Student();
         student.setName(data.getName());
         student.setUsername(data.getEmail());
-        student.setPassword(data.getPassword());
+        student.setPassword(passwordHasherService.hashPassword(data.getPassword()));
         student.setProgress(0);
         student.setLessonsCompleted(new ArrayList<>());
         return studentRepository.save(student);

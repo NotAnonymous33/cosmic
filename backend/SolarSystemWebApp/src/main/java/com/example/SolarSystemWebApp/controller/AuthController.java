@@ -5,6 +5,7 @@ import com.example.SolarSystemWebApp.communication.AuthResponse;
 import com.example.SolarSystemWebApp.communication.StudentData;
 import com.example.SolarSystemWebApp.model.Student;
 import com.example.SolarSystemWebApp.security.TokenProvider;
+import com.example.SolarSystemWebApp.service.PasswordHasherService;
 import com.example.SolarSystemWebApp.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -35,7 +36,10 @@ public class AuthController {
     @Autowired
     private UserDetailsService userDetailsService;
 
-    @PostMapping("/login")
+    @Autowired
+    private PasswordHasherService passwordHasherService;
+
+    @PostMapping("/student_login")
     public ResponseEntity<AuthResponse> login(@RequestBody AuthRequest request) {
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword());
         try {
@@ -44,6 +48,7 @@ public class AuthController {
             throw new BadCredentialsException("Invalid credentials", exception);
         }
         UserDetails details = userDetailsService.loadUserByUsername(request.getUsername());
+
         String token = tokenProvider.generateToken(details);
 
         AuthResponse response = AuthResponse.builder()
