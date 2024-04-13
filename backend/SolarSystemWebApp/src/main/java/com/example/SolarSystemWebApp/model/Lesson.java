@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.UUID;
 
 @Data
-@Document(collation = "Lessons")
+@Document(collection = "Lessons")
 @AllArgsConstructor
 @NoArgsConstructor
 public class Lesson {

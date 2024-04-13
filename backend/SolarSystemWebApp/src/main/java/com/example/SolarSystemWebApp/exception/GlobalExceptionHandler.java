@@ -21,6 +21,12 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(error, error.getStatus());
     }
 
+    @ExceptionHandler(LessonNotFoundException.class)
+    public ResponseEntity ExceptionHandler(LessonNotFoundException e) {
+        ErrorResponse error = new ErrorResponse(HttpStatus.NOT_FOUND, e.getLocalizedMessage());
+        return new ResponseEntity<>(error, error.getStatus());
+    }
+
     @ExceptionHandler(InvalidTeacherCredentialsException.class)
     public ResponseEntity ExceptionHandler(InvalidTeacherCredentialsException e) {
         ErrorResponse error = new ErrorResponse(HttpStatus.UNAUTHORIZED, e.getLocalizedMessage());

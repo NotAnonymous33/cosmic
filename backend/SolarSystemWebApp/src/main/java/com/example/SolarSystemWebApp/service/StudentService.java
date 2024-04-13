@@ -30,10 +30,13 @@ public class StudentService {
     }
 
     public Student getStudentById(String id) throws StudentNotFoundException {
-        return studentRepository.getStudentById(id);
+        Student student = studentRepository.getStudentById(id);
+        if (student == null)
+            throw new StudentNotFoundException("Student not found!", new Exception());
+        return student;
     }
 
-    public UserDetails getStudentByUsername(String username) throws StudentNotFoundException{
+    public UserDetails getStudentByUsername(String username) throws StudentNotFoundException {
         return studentRepository.getStudentByUsername(username);
     }
 
