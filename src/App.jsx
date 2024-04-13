@@ -2,7 +2,7 @@ import Scene from "./Scene.jsx";
 import Login from "./Login.jsx";
 import Info from "./Info.jsx";
 
-import {NavLink, Route, Routes} from "react-router-dom";
+import { NavLink, Route, Routes } from "react-router-dom";
 import Temp from "./Temp.jsx";
 import Background from "./Background.jsx";
 import Game from "./Game.jsx";
