@@ -8,6 +8,7 @@ import Background from "./Background.jsx";
 import Game from "./Game.jsx";
 
 
+
 function App() {
 
     return (
@@ -23,8 +24,8 @@ function App() {
                 <NavLink to="/login">Login</NavLink>
             </nav>
             <Routes>
-                <Route path="/" element={<Scene />} />
-                <Route path="/cards" element={<Info />} />
+                <Route path="/" element={<><Background /><Scene /></>} />
+                <Route path="/cards" element={<><Background /><Info /></>} />
                 <Route path="/two" element={<Background />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/game" element={<Game />} />

@@ -1,5 +1,15 @@
 [
   {
+    "name": "Mercury",
+    "description": "The smallest planet in the Solar System",
+    "src": "https://media.istockphoto.com/id/183817880/photo/mercury.jpg?s=612x612&w=0&k=20&c=Kc_myCnUThIYyb8lVm0mOCtNWqMwRQdbbM8GvA9xoqc="
+  },
+  {
+    "name": "Venus",
+    "description": "The hottest planet in the Solar System",
+    "src": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Venus-real_color.jpg"
+  },
+  {
     "name": "Earth",
     "description": "The third planet from the Sun",
     "src": "https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg"
