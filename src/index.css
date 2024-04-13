@@ -1,25 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
 * {
   box-sizing: border-box;
   margin: 0;
+  font-family: 'Orbitron', sans-serif; /* set a space-style font */
+  color: #08d9d6;
 }
 
 #root {
   padding: 0;
   margin: 0;
   width: 100%;
+  background-color: #020916; /* set a dark cosmic background */
 }
 
 nav {
   display: flex;
   align-items: center;
   justify-content: space-between; /* Pushes .nav-title to the left and .nav-links to the right */
-  /*position: relative; !* Relative positioning for the nav to act as a reference for .nav-links *!*/
-  /*background-color: #e5fffd;*/
   padding: 5px 20px 0 20px;
-  color: #000000;
-  box-shadow: #000 0 0 5px;
+  color: #FFFFFF;
+  box-shadow: #08d9d6 0 0 5px; /* set a bright/glowing box shadow */
   height: 40px;
-  /*transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;*/
+  background-color: #1e1b36; /* set a dark cosmic background */
   transition: all 0.3s ease;
 }
 
@@ -37,8 +40,19 @@ nav ul {
 
 .nav-links > li {
   margin: 0 20px; /* Add some horizontal margin between list items */
+  /* make links brighter on hover for a glowing effect: */
+  transition: color 0.3s ease;
 }
 
-.card-image {
-  height: 200px;
+.nav-links > li:hover {
+  color: #08d9d6;
+}
+
+a {
+  text-decoration: none;
+  color: #08d9d6;
+}
+
+a:visited {
+  color: #08d9d6;
 }
