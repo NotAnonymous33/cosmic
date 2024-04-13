@@ -1,7 +1,3 @@
-import {useEffect, useRef} from 'react';
-import * as THREE from 'three';
-import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
-import Navbar from "./Navbar.jsx";
 import Scene from "./Scene.jsx";
 import Login from "./Login.jsx";
 import Info from "./Info.jsx";

@@ -1,17 +1,11 @@
 import cards from "./cardinfo.json";
+import Card from "./Card.jsx";
 
 export default function Info() {
 
     const elements = cards.map(card =>
-            <div className="card" key={card.name}>
-                <h2>{card.name}</h2>
-                <p>{card.description}</p>
-                <img src={card.src} alt="placeholder" className="card-image"/>
-                <button>Click me</button>
-            </div>
+        <Card name={card.name} description={card.description} src={card.src} key={card.name}/>
     )
 
-
-
-    return <div className="cardsContainer">{elements}</div>;
+    return <div className="cards-container">{elements}</div>;
 }
