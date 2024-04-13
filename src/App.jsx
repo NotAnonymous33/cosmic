@@ -5,6 +5,7 @@ import Info from "./Info.jsx";
 import {NavLink, Route, Routes} from "react-router-dom";
 import Temp from "./Temp.jsx";
 import Background from "./Background.jsx";
+import Game from "./Game.jsx";
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
                     <li><NavLink to="/">Home</NavLink></li>
                     <li><NavLink to="/cards">Cards</NavLink></li>
                     <li><NavLink to="/two">Two</NavLink></li>
+                    <li><NavLink to="/game">Game</NavLink></li>
                 </ul>
                 <NavLink to="/login">Login</NavLink>
             </nav>
@@ -25,6 +27,7 @@ function App() {
                 <Route path="/cards" element={<Info />} />
                 <Route path="/two" element={<Background />} />
                 <Route path="/login" element={<Login />} />
+                <Route path="/game" element={<Game />} />
             </Routes>
         </>
     );
