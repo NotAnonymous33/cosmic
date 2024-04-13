@@ -14,4 +14,16 @@ public class GlobalExceptionHandler {
         ErrorResponse error = new ErrorResponse(HttpStatus.NOT_FOUND, e.getLocalizedMessage());
         return new ResponseEntity<>(error, error.getStatus());
     }
+
+    @ExceptionHandler(TeacherNotFoundException.class)
+    public ResponseEntity ExceptionHandler(TeacherNotFoundException e) {
+        ErrorResponse error = new ErrorResponse(HttpStatus.NOT_FOUND, e.getLocalizedMessage());
+        return new ResponseEntity<>(error, error.getStatus());
+    }
+
+    @ExceptionHandler(InvalidTeacherCredentialsException.class)
+    public ResponseEntity ExceptionHandler(InvalidTeacherCredentialsException e) {
+        ErrorResponse error = new ErrorResponse(HttpStatus.UNAUTHORIZED, e.getLocalizedMessage());
+        return new ResponseEntity<>(error, error.getStatus());
+    }
 }

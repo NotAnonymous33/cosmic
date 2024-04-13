@@ -40,6 +40,7 @@ public class ApplicationConfig {
         httpSecurity.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> {
                     auth.requestMatchers("/auth/**").permitAll();
+                    auth.requestMatchers("/teachers/**").permitAll();
                     auth.anyRequest().authenticated();
                 }).exceptionHandling(ex -> ex.authenticationEntryPoint(entryPoint));
         httpSecurity.addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class);

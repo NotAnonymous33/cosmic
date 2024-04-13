@@ -6,12 +6,15 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
 
 @Data
-@Document(collation = "Teachers")
+@Document(collection = "Teachers")
 @NoArgsConstructor
 @AllArgsConstructor
 public class Teacher {
@@ -19,7 +22,8 @@ public class Teacher {
     @Id
     private String id;
     private String name;
+    private String email;
+    private String password;
 
-    @DBRef
     private List<Student> students;
 }
