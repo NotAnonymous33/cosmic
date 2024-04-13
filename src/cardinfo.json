@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Earth",
+    "description": "The third planet from the Sun",
+    "src": "https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg"
+  },
+  {
+    "name": "Mars",
+    "description": "The fourth planet from the Sun",
+    "src": "https://upload.wikimedia.org/wikipedia/commons/0/02/OSIRIS_Mars_true_color.jpg"
+  },
+  {
+    "name": "Jupiter",
+    "description": "The fifth planet from the Sun",
+    "src": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Jupiter_and_its_shrunken_Great_Red_Spot.jpg"
+  },
+  {
+    "name": "Saturn",
+    "description": "The sixth planet from the Sun",
+    "src": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Saturn_during_Equinox.jpg"
+  },
+  {
+    "name": "Uranus",
+    "description": "The seventh planet from the Sun",
+    "src": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Uranus2.jpg"
+  },
+  {
+    "name": "Neptune",
+    "description": "The eighth planet from the Sun",
+    "src": "https://upload.wikimedia.org/wikipedia/commons/5/56/Neptune_Full.jpg"
+  }
+]

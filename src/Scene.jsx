@@ -14,7 +14,8 @@ function Scene() {
 
         const renderer = new THREE.WebGLRenderer();
         renderer.setSize(window.innerWidth, window.innerHeight);
-        document.getElementById('root').appendChild(renderer.domElement);
+        const canvas = renderer.domElement;
+        document.getElementById('root').appendChild(canvas);
 
         const ambientLight = new THREE.AmbientLight(0x404040, 0.5);
         scene.add(ambientLight);
@@ -77,6 +78,7 @@ function Scene() {
         return () => {
             console.log("Cleanup called"); // Check if cleanup happens unexpectedly
             renderer.dispose(); // Cleanup renderer when component unmounts
+            canvas.remove();
         };
     }, []);
 

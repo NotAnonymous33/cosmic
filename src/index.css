@@ -38,3 +38,7 @@ nav ul {
 .nav-links > li {
   margin: 0 20px; /* Add some horizontal margin between list items */
 }
+
+.card-image {
+  height: 200px;
+}
