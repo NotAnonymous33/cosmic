@@ -5,10 +5,14 @@ function Game() {
   const jumpHeight = 50;
   const jumpSize = 10;
   const circleSize = 100;
+  const platformHeight = 50;
   const [x, setX] = useState((window.innerWidth - circleSize) / 2);
   const [y, setY] = useState(0);
   const [moveLeft, setMoveLeft] = useState(false);
   const [moveRight, setMoveRight] = useState(false);
+  const [platformX, setPlatformX] = useState((window.innerWidth - 300) / 2); // 300 is platform width
+  const [platformY, setPlatformY] = useState(window.innerHeight * 0.4); // 40% from bottom of window
+
   const jumpLock = useRef(false);
 
   const handleKeyDown = (event) => {
@@ -30,7 +34,22 @@ function Game() {
       // Bring circle down
       for (let i = 0; i < jumpHeight; i++) {
         setTimeout(() => {
-          setY((y) => Math.max(y - jumpSize, 0)); // Set lower limit
+          setY((prevY) => {
+            const newY = Math.max(prevY - jumpSize, 0); // Set lower limit
+
+            if (
+              newY <= platformY + platformHeight &&
+              x >= platformX &&
+              x <= platformX + 300
+            ) {
+              // the circle is within the platform area
+              // stop moving further down
+              jumpLock.current = false;
+              return platformY + platformHeight;
+            }
+
+            return newY; // No collision, continue falling
+          });
         }, (i + jumpHeight) * 20);
       }
       // Reset jumping lock
@@ -61,12 +80,38 @@ function Game() {
 
   useEffect(() => {
     const moveInterval = setInterval(() => {
-      if (moveLeft) setX((x) => Math.max(x - stepSize, 0)); // Set left limit
-      if (moveRight)
-        setX((x) => Math.min(x + stepSize, window.innerWidth - circleSize)); // Set right limit
+      if (moveLeft) {
+        setX((prevX) => Math.max(prevX - stepSize, 0)); // Normal left movement
+      }
+      if (moveRight) {
+        setX((prevX) =>
+          Math.min(prevX + stepSize, window.innerWidth - circleSize)
+        ); // Normal right movement
+      }
+
+      // If the circle falls off platform
+      if (
+        y === platformY + platformHeight &&
+        (x + circleSize < platformX || x > platformX + 300) &&
+        !jumpLock.current
+      ) {
+        const fallDistance = platformY + platformHeight;
+        const fallIterations = fallDistance / jumpSize;
+
+        for (let i = 0; i < fallIterations; i++) {
+          setTimeout(() => {
+            setY((prevY) => {
+              const newY = Math.max(prevY - jumpSize, 0); // Set lower limit
+              return newY;
+            });
+          }, i * 20);
+        }
+      }
     }, 20);
 
-    return () => clearInterval(moveInterval);
+    return () => {
+      clearInterval(moveInterval);
+    };
   }, [moveLeft, moveRight]);
 
   const circleStyle = {
@@ -80,9 +125,19 @@ function Game() {
     transition: "left 0.05s linear, bottom 0.01s linear",
   };
 
+  const platformStyle = {
+    width: "300px",
+    height: `${platformHeight}px`,
+    backgroundColor: "grey",
+    position: "absolute",
+    left: `${platformX}px`,
+    bottom: `${platformY}px`,
+  };
+
   return (
     <div>
       <div style={circleStyle}></div>
+      <div style={platformStyle}></div>
     </div>
   );
 }
