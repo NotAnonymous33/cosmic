@@ -1,6 +1,7 @@
 import Scene from "./Scene.jsx";
 import Login from "./auth/Login.jsx";
 import Register from "./auth/Register.jsx";
+import Profile from "./profile/profile.jsx";
 import Info from "./Info.jsx";
 
 import { NavLink, Route, Routes } from "react-router-dom";
@@ -23,13 +24,7 @@ function App() {
             <NavLink to="/game">Gravity</NavLink>
           </li>
         </ul>
-        <ul
-          className="nav-links"
-          style={{
-            position: "absolute",
-            marginLeft: "750px",
-          }}
-        >
+        <ul className="nav-links">
           <li>
             <NavLink to="/login">Login</NavLink>
           </li>
@@ -59,6 +54,7 @@ function App() {
         />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/profile" element={<Profile />} />
         <Route
           path="/game"
           element={

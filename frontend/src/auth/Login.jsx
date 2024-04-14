@@ -45,6 +45,11 @@ class Login extends React.Component {
           toast.success("Successful login!");
           console.log(result);
           localStorage.setItem("token", JSON.stringify(result.data.token));
+          localStorage.setItem(
+            "studentData",
+            JSON.stringify(result.data.student)
+          );
+          window.location.href = "http://localhost:5173/profile";
         })
         .catch((error) => {
           toast.error("Something went wrong! Please try again.");
@@ -86,6 +91,7 @@ class Login extends React.Component {
           }}
         >
           <h2 style={{ color: "white" }}>Login</h2>
+          <br />
           <TextField
             placeholder="Enter username/email..."
             value={this.state.username}

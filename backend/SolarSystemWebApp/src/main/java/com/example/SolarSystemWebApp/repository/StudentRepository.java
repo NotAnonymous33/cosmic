@@ -9,4 +9,6 @@ import java.util.UUID;
 public interface StudentRepository extends MongoRepository<Student, UUID> {
     Student getStudentById(String id);
     UserDetails getStudentByUsername(String username);
+
+    Student findStudentByUsername(String username);
 }

@@ -3,6 +3,8 @@ package com.example.SolarSystemWebApp.controller;
 import com.example.SolarSystemWebApp.communication.AuthRequest;
 import com.example.SolarSystemWebApp.communication.AuthResponse;
 import com.example.SolarSystemWebApp.communication.StudentData;
+import com.example.SolarSystemWebApp.exception.StudentExistsException;
+import com.example.SolarSystemWebApp.exception.StudentNotFoundException;
 import com.example.SolarSystemWebApp.model.Student;
 import com.example.SolarSystemWebApp.security.TokenProvider;
 import com.example.SolarSystemWebApp.service.StudentService;
@@ -36,7 +38,7 @@ public class AuthController {
     private UserDetailsService userDetailsService;
 
     @PostMapping("/student_login")
-    public ResponseEntity<AuthResponse> studentLogin(@RequestBody AuthRequest request) {
+    public ResponseEntity<AuthResponse> studentLogin(@RequestBody AuthRequest request) throws StudentNotFoundException {
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword());
         try {
             manager.authenticate(authenticationToken);
@@ -49,14 +51,14 @@ public class AuthController {
 
         AuthResponse response = AuthResponse.builder()
                 .token(token)
-                .username(details.getUsername())
+                .student(service.getStudentByUsernamePassword(request.getUsername(), request.getPassword()))
                 .build();
 
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @PostMapping("/new_student")
-    public Student addStudent(@RequestBody StudentData data) {
+    public Student addStudent(@RequestBody StudentData data) throws StudentExistsException {
         return service.newStudent(data);
     }
 }

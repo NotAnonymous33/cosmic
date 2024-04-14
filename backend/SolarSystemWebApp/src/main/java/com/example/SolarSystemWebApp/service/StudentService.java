@@ -1,6 +1,7 @@
 package com.example.SolarSystemWebApp.service;
 
 import com.example.SolarSystemWebApp.communication.StudentData;
+import com.example.SolarSystemWebApp.exception.StudentExistsException;
 import com.example.SolarSystemWebApp.exception.StudentNotFoundException;
 import com.example.SolarSystemWebApp.model.Lesson;
 import com.example.SolarSystemWebApp.model.Student;
@@ -36,8 +37,22 @@ public class StudentService {
         return student;
     }
 
-    public UserDetails getStudentByUsername(String username) throws StudentNotFoundException {
+    public UserDetails getStudentDetailsByUsername(String username) {
         return studentRepository.getStudentByUsername(username);
+    }
+
+    public Student getStudentByUsernamePassword(String username, String password) throws StudentNotFoundException {
+        List<Student> students = getAllStudents();
+        Student student = null;
+        for (Student s : students) {
+            if (s.getUsername().equals(username) && passwordHasherService.verifyPassword(password, s.getPassword())) {
+                student = s;
+                break;
+            }
+        }
+        if (student == null)
+            throw new StudentNotFoundException("Student not found!", new Exception());
+        return student;
     }
 
     public List<Lesson> getStudentCompletedLessons(String id) throws StudentNotFoundException {
@@ -48,7 +63,12 @@ public class StudentService {
         return getStudentById(id).getProgress();
     }
 
-    public Student newStudent(StudentData data) {
+    public Student newStudent(StudentData data) throws StudentExistsException {
+        List<Student> students = getAllStudents();
+        for(Student s : students) {
+            if(s.getUsername().equals(data.getEmail()))
+                throw new StudentExistsException("Student already present!", new Exception());
+        }
         Student student = new Student();
         student.setName(data.getName());
         student.setUsername(data.getEmail());
