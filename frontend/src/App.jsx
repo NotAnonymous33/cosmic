@@ -7,34 +7,60 @@ import Temp from "./Temp.jsx";
 import Background from "./Background.jsx";
 import Game from "./Game.jsx";
 
-
-
 function App() {
-
-    return (
-        <>
-            <nav className="navbar">
-                <h1>website name</h1>
-                <ul className="nav-links">
-                    <li><NavLink to="/">Home</NavLink></li>
-                    <li><NavLink to="/cards">Cards</NavLink></li>
-                    <li><NavLink to="/two">Two</NavLink></li>
-                    <li><NavLink to="/game">Game</NavLink></li>
-                </ul>
-                <NavLink to="/login">Login</NavLink>
-            </nav>
-            <Routes>
-                <Route path="/" element={<><Background /><Scene /></>} />
-                <Route path="/cards" element={<><Background /><Info /></>} />
-                <Route path="/two" element={<Background />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/game" element={<><Background /><Game /></>} />
-            </Routes>
-        </>
-    );
+  return (
+    <>
+      <nav className="navbar">
+        <h1>website name</h1>
+        <ul className="nav-links">
+          <li>
+            <NavLink to="/">Home</NavLink>
+          </li>
+          <li>
+            <NavLink to="/cards">Cards</NavLink>
+          </li>
+          <li>
+            <NavLink to="/two">Two</NavLink>
+          </li>
+          <li>
+            <NavLink to="/game">Game</NavLink>
+          </li>
+        </ul>
+        <NavLink to="/login">Login</NavLink>
+      </nav>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <Background />
+              <Scene />
+            </>
+          }
+        />
+        <Route
+          path="/cards"
+          element={
+            <>
+              <Background />
+              <Info />
+            </>
+          }
+        />
+        <Route path="/two" element={<Background />} />
+        <Route path="/login" element={<Login />} />
+        <Route
+          path="/game"
+          element={
+            <>
+              <Background />
+              <Game />
+            </>
+          }
+        />
+      </Routes>
+    </>
+  );
 }
 
-
 export default App;
-
-
