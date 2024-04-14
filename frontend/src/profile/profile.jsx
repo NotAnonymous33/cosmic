@@ -12,9 +12,9 @@ class Profile extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className="container">
         <h1>Student Profile</h1>
-        <div>
+        <div className="profile-card">
           <p>ID: {this.state.studentData.id}</p>
           <p>Name: {this.state.studentData.name}</p>
           <p>Email: {this.state.studentData.username}</p>
