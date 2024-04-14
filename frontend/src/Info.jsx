@@ -17,6 +17,7 @@ const LessonsComponent = () => {
       } catch (error) {
         // Handle error if fetching lessons fails
         console.error("Error fetching lessons:", error);
+        setLessonSelected(false)
       }
     };
 
