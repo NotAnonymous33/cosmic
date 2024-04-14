@@ -96,8 +96,32 @@ class Register extends React.Component {
           }}
         >
           <h2 style={{ color: "white" }}>Register</h2>
+          <br />
           <TextField
-            placeholder="Enter username/email..."
+            placeholder="Enter student name"
+            value={this.state.name}
+            onChange={(event) => this.onChangeName(event)}
+            style={{
+              color: "white",
+              backgroundColor: "rgba(30, 30, 30, 0.8)",
+              borderStyle: "none",
+              borderRadius: "5px",
+              width: "250px",
+              padding: "10px",
+              boxShadow: "0 0 5px 1px rgba(252,70,107,1)",
+            }}
+            InputProps={{
+              // <-- This values are for the input (inside the TextField component)
+              disableUnderline: true, // <-- This removes the underline
+              style: {
+                color: "white",
+                fontFamily: "Arial",
+                fontSize: "16px",
+              },
+            }}
+          />
+          <TextField
+            placeholder="Enter student email"
             value={this.state.username}
             onChange={(event) => this.onChangeUsername(event)}
             style={{

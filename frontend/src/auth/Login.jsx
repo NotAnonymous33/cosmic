@@ -90,6 +90,7 @@ class Login extends React.Component {
           }}
         >
           <h2 style={{ color: "white" }}>Login</h2>
+          <br />
           <TextField
             placeholder="Enter username/email..."
             value={this.state.username}
