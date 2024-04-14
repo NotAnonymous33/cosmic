@@ -1,0 +1,58 @@
+/* Profile.css */
+
+/* Body background */
+body {
+  background-color: #0e0e1a;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+}
+
+/* Container styles */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header styles */
+h1 {
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Profile card styles */
+.profile-card {
+  background-color: #1a1a2e;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* Profile card title styles */
+.profile-card h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* Profile card text styles */
+.profile-card p {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+/* Button styles */
+button {
+  background-color: #8338ec;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #3a86ff;
+}
