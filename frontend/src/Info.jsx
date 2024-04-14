@@ -21,7 +21,8 @@ const LessonsComponent = () => {
   }, []); // Empty dependency array ensures useEffect runs only once on mount
 
   return (
-    <div>
+    <div className="lessons-container">
+      <h2 className="lessons-title">Cosmic Lessons</h2>
       <div className="card-container">
         {lessons.length > 0 ? (
           lessons.map((lesson) => (
