@@ -31,9 +31,6 @@ nav ul {
 }
 
 .nav-links {
-  position: absolute; /* Takes it out of the normal flow */
-  left: 50%; /* Moves it to the center */
-  transform: translateX(-50%); /* Corrects the position to the exact center */
   display: flex;
   justify-content: center;
 }

@@ -28,13 +28,7 @@ function App() {
             <NavLink to="/game">Game</NavLink>
           </li>
         </ul>
-        <ul
-          className="nav-links"
-          style={{
-            position: "absolute",
-            marginLeft: "750px",
-          }}
-        >
+        <ul className="nav-links">
           <li>
             <NavLink to="/login">Login</NavLink>
           </li>
