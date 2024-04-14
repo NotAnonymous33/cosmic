@@ -18,7 +18,12 @@ class Profile extends React.Component {
           <p>ID: {this.state.studentData.id}</p>
           <p>Name: {this.state.studentData.name}</p>
           <p>Email: {this.state.studentData.username}</p>
-          <p>Current course: P{this.state.studentData.currentCourse}</p>
+          <p>
+            Current course:{" "}
+            {this.state.studentData.currentCourse
+              ? this.state.studentData.currentCourse
+              : "-"}
+          </p>
           <p>Progress so far: {this.state.studentData.progress}</p>
         </div>
       </div>
