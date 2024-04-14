@@ -10,7 +10,7 @@ export default function Card(props) {
         <h2>{props.name}</h2>
         <p>{props.description}</p>
         <img src={props.src} className="card-image" alt="placeholder" />
-        <button>Click me</button>
+        <button>Choose</button>
       </div>
     </>
   );
