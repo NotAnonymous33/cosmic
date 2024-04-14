@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { userData } from "three/examples/jsm/nodes/Nodes.js";
 
 function Game() {
   const stepSize = 5;
@@ -12,8 +13,9 @@ function Game() {
   const [moveRight, setMoveRight] = useState(false);
   const [platformX, setPlatformX] = useState((window.innerWidth - 300) / 2); // 300 is platform width
   const [platformY, setPlatformY] = useState(window.innerHeight * 0.4); // 40% from bottom of window
-
+  const [isOnPlatform, setIsOnPlatform] = useState(false);
   const jumpLock = useRef(false);
+  const [isOnGround, setIsOnGround] = useState(false);
 
   const handleKeyDown = (event) => {
     if (event.key === "ArrowLeft") {
@@ -45,6 +47,7 @@ function Game() {
               // the circle is within the platform area
               // stop moving further down
               jumpLock.current = false;
+              setIsOnPlatform(true); // Set flag indicating the ball is on the platform
               return platformY + platformHeight;
             }
 
@@ -80,6 +83,21 @@ function Game() {
 
   useEffect(() => {
     const moveInterval = setInterval(() => {
+      // Start falling animation for platform and ball only when ball is on platform
+      if (isOnPlatform && !isOnGround) {
+        if (platformY > 0) {
+          setPlatformY((prevY) => Math.max(prevY - jumpSize, 0)); // Fall down platform
+          setY((prevY) => Math.max(prevY - jumpSize, platformHeight));
+        }
+        // Ball falls with platform
+
+        setIsOnGround(true);
+        // If the platform reaches the ground and the ball is on it
+        if (platformY === 0 && y > 0) {
+          setY((y) => Math.max(y - jumpSize, 0)); // Set lower limit for ball
+        }
+      }
+
       if (moveLeft) {
         setX((prevX) => Math.max(prevX - stepSize, 0)); // Normal left movement
       }
@@ -88,31 +106,10 @@ function Game() {
           Math.min(prevX + stepSize, window.innerWidth - circleSize)
         ); // Normal right movement
       }
-
-      // If the circle falls off platform
-      if (
-        y === platformY + platformHeight &&
-        (x + circleSize < platformX || x > platformX + 300) &&
-        !jumpLock.current
-      ) {
-        const fallDistance = platformY + platformHeight;
-        const fallIterations = fallDistance / jumpSize;
-
-        for (let i = 0; i < fallIterations; i++) {
-          setTimeout(() => {
-            setY((prevY) => {
-              const newY = Math.max(prevY - jumpSize, 0); // Set lower limit
-              return newY;
-            });
-          }, i * 20);
-        }
-      }
     }, 20);
 
-    return () => {
-      clearInterval(moveInterval);
-    };
-  }, [moveLeft, moveRight]);
+    return () => clearInterval(moveInterval);
+  }, [moveLeft, moveRight, isOnPlatform]);
 
   const circleStyle = {
     width: `${circleSize}px`,
