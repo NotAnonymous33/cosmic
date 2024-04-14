@@ -24,6 +24,7 @@ public class LessonService {
         new_lesson.setName(lessonRequest.getName());
         new_lesson.setDescription(lessonRequest.getDescription());
         new_lesson.setDifficulty(lessonRequest.getDifficulty());
+        new_lesson.setImageUrl(lessonRequest.getImageUrl());
         return lessonRepository.save(new_lesson);
     }
 

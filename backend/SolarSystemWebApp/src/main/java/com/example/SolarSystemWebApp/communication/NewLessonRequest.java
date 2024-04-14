@@ -14,4 +14,5 @@ public class NewLessonRequest {
     private String name;
     private String description;
     private char difficulty;
+    private String imageUrl;
 }
