@@ -49,6 +49,7 @@ class Login extends React.Component {
             "studentData",
             JSON.stringify(result.data.student)
           );
+          window.location.href = "http://localhost:5173/profile";
         })
         .catch((error) => {
           toast.error("Something went wrong! Please try again.");
