@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Card from "./Card.jsx";
 import fetchLessons from "./lessons/lessons"; // Import the fetchLessons function
-import "./LessonsComponent.css"; // Import custom CSS for styling
+import "./css/LessonsComponent.css"; // Import custom CSS for styling
 
 const LessonsComponent = () => {
   const [lessons, setLessons] = useState([]);

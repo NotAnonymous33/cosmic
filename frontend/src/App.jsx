@@ -22,7 +22,6 @@ function App() {
           </li>
           <li>
             <NavLink to="/game">Game</NavLink>
-            <NavLink to="/cards">Cards</NavLink>
           </li>
           <li>
             <NavLink to="/game">Gravity</NavLink>

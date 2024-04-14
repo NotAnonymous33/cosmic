@@ -17,8 +17,9 @@ router.post("/chat", async (req, res) => {
         content: req.body.prompt + " as if I am a primary kid",
       },
     ],
-    model: "gpt-4-turbo",
+    model: "gpt-3.5-turbo",
   });
+  console.log(completion.choices[0].message.content);
   res.send(completion.choices[0].message.content);
   res.status(200);
 });

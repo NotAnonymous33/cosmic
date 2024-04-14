@@ -20,4 +20,5 @@ public class Lesson {
     private String description;
     private char difficulty;
     private String imageUrl;
+    private String content;
 }
