@@ -38,4 +38,10 @@ public class GlobalExceptionHandler {
         ErrorResponse error = new ErrorResponse(HttpStatus.NOT_ACCEPTABLE, e.getLocalizedMessage());
         return new ResponseEntity<>(error, error.getStatus());
     }
+
+    @ExceptionHandler(StudentExistsException.class)
+    public ResponseEntity ExceptionHandler(StudentExistsException e) {
+        ErrorResponse error = new ErrorResponse(HttpStatus.NOT_ACCEPTABLE, e.getLocalizedMessage());
+        return new ResponseEntity<>(error, error.getStatus());
+    }
 }

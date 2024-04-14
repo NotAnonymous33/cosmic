@@ -45,6 +45,10 @@ class Login extends React.Component {
           toast.success("Successful login!");
           console.log(result);
           localStorage.setItem("token", JSON.stringify(result.data.token));
+          localStorage.setItem(
+            "studentData",
+            JSON.stringify(result.data.student)
+          );
         })
         .catch((error) => {
           toast.error("Something went wrong! Please try again.");
