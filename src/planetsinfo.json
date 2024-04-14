@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Sun",
+    "color": "yellow",
+    "gravity": 274
+  },
+  {
+    "name": "Mercury",
+    "color": "gray",
+    "gravity": 3.7
+  },
+  {
+    "name": "Venus",
+    "color": "yellow",
+    "gravity": 8.9
+  },
+  {
+    "name": "Earth",
+    "color": "blue",
+    "gravity": 9.8
+  },
+  {
+    "name": "Mars",
+    "color": "red",
+    "gravity": 3.7
+  },
+  {
+    "name": "Jupiter",
+    "color": "orange",
+    "gravity": 24.8
+  },
+  {
+    "name": "Saturn",
+    "color": "brown",
+    "gravity": 10.4
+  },
+  {
+    "name": "Uranus",
+    "color": "blue",
+    "gravity": 8.7
+  },
+  {
+    "name": "Neptune",
+    "color": "blue",
+    "gravity": 11.0
+  }
+]
