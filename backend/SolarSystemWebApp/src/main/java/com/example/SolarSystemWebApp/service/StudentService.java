@@ -59,11 +59,11 @@ public class StudentService {
         return studentRepository.save(student);
     }
 
-    public Student updateProgress(String id, int number_of_new_lessons_done) throws StudentNotFoundException {
+    public Student updateProgress(String id) throws StudentNotFoundException {
         Student student = getStudentById(id);
         double progress = student.getProgress();
         int total_lessons = lessonService.getLessons().size();
-        double newProgress = (progress * total_lessons + number_of_new_lessons_done) / total_lessons;
+        double newProgress = (double) student.getLessonsCompleted().size() / total_lessons;
         student.setProgress(newProgress);
         return studentRepository.save(student);
     }
