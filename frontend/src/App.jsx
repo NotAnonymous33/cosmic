@@ -4,7 +4,6 @@ import Register from "./auth/Register.jsx";
 import Info from "./Info.jsx";
 
 import { NavLink, Route, Routes } from "react-router-dom";
-import Temp from "./Temp.jsx";
 import Background from "./Background.jsx";
 import Game from "./Game.jsx";
 
@@ -21,10 +20,7 @@ function App() {
             <NavLink to="/cards">Cards</NavLink>
           </li>
           <li>
-            <NavLink to="/two">Two</NavLink>
-          </li>
-          <li>
-            <NavLink to="/game">Game</NavLink>
+            <NavLink to="/game">Gravity</NavLink>
           </li>
         </ul>
         <ul
@@ -61,7 +57,6 @@ function App() {
             </>
           }
         />
-        <Route path="/two" element={<Background />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route

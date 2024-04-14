@@ -9,6 +9,7 @@ import VenusTexture from "./textures/Venus2.webp";
 import SaturnTexture from "./textures/saturn.jpeg";
 import UranusTexture from "./textures/uranus.webp";
 import NeptuneTexture from "./textures/neptune.jpeg";
+import JupiterTexture from "./textures/jupiter.jpeg";
 
 import { texture } from "three/examples/jsm/nodes/Nodes.js";
 
@@ -87,7 +88,7 @@ function Scene() {
         size: 5.5,
         color: 0xffc300,
         speed: 0.15,
-        texture: MercutyTexture,
+        texture: JupiterTexture,
       },
       {
         name: "Saturn",
@@ -125,12 +126,20 @@ function Scene() {
       } else {
         material = new THREE.MeshLambertMaterial({ color: data.color });
       }
+
       const planet = createSphere(data.size, 16, material);
+
       planet.orbitRadius = data.distance;
       planet.rotationSpeed = data.speed;
       planet.spinSpeed = 0.1;
-      planet.angle = 0;
-      planet.rotation.y = 0;
+
+      // Start with a random angle
+      planet.angle = Math.random() * Math.PI * 2;
+
+      // Set the initial position of the planet
+      planet.position.x = planet.orbitRadius * Math.cos(planet.angle);
+      planet.position.z = planet.orbitRadius * Math.sin(planet.angle);
+
       scene.add(planet);
       planetRef.current.push(planet);
     });
@@ -175,17 +184,26 @@ function createSphere(radius, segments, material) {
 
 function addAsteroidBelt(scene) {
   const asteroidMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
+
   // Set the range of the asteroid belt between Mars and Jupiter
-  const startRadius = 55; // Just beyond Mars
-  const endRadius = 65; // Just before Jupiter
-  const totalAsteroids = 1000; // Number of asteroids to generate
+  const startRadius = 55; // Decreased this number
+  const endRadius = 60; // Increased this number
+  const totalAsteroids = 1500; // Number of asteroids to generate
 
   for (let i = 0; i < totalAsteroids; i++) {
     const asteroid = createSphere(0.1, 6, asteroidMaterial);
+
     // Random radius between startRadius and endRadius
     const r = startRadius + Math.random() * (endRadius - startRadius);
     const angle = Math.random() * Math.PI * 2; // Random angle for full circle
-    asteroid.position.set(Math.cos(angle) * r, 0, Math.sin(angle) * r);
+
+    // Inside the loop
+    const verticalPosition = Math.random() * 10 - 5; // Random position between -5 and 5
+    asteroid.position.set(
+      Math.cos(angle) * r,
+      verticalPosition,
+      Math.sin(angle) * r
+    );
     scene.add(asteroid);
   }
 }
