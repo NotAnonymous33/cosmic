@@ -44,7 +44,7 @@ class Login extends React.Component {
         .then((result) => {
           toast.success("Successful login!");
           console.log(result);
-          localStorage.setItem("token", JSON.stringify(result.data.token));
+          localStorage.setItem("token", result.data.token);
           localStorage.setItem(
             "studentData",
             JSON.stringify(result.data.student)

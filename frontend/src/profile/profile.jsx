@@ -26,6 +26,7 @@ class Profile extends React.Component {
           </p>
           <p>Progress so far: {this.state.studentData.progress}</p>
         </div>
+        <button>Choose a lesson</button>
       </div>
     );
   }

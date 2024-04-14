@@ -19,10 +19,7 @@ function App() {
             <NavLink to="/">Home</NavLink>
           </li>
           <li>
-            <NavLink to="/cards">Cards</NavLink>
-          </li>
-          <li>
-            <NavLink to="/two">Two</NavLink>
+            <NavLink to="/cards">Lessons</NavLink>
           </li>
           <li>
             <NavLink to="/game">Game</NavLink>
@@ -56,7 +53,6 @@ function App() {
             </>
           }
         />
-        <Route path="/two" element={<Background />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/profile" element={<Profile />} />
