@@ -28,7 +28,7 @@ function App() {
                 <Route path="/cards" element={<><Background /><Info /></>} />
                 <Route path="/two" element={<Background />} />
                 <Route path="/login" element={<Login />} />
-                <Route path="/game" element={<Game />} />
+                <Route path="/game" element={<><Background /><Game /></>} />
             </Routes>
         </>
     );

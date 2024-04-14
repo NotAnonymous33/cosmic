@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './css/Background.css';
 import Starfield from "react-starfield";
 
