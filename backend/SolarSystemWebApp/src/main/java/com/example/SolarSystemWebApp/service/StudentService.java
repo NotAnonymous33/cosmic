@@ -55,6 +55,7 @@ public class StudentService {
         student.setPassword(passwordHasherService.hashPassword(data.getPassword()));
         student.setProgress(0);
         student.setLessonsCompleted(new ArrayList<>());
+        student.setCurrentLesson(null);
         return studentRepository.save(student);
     }
 

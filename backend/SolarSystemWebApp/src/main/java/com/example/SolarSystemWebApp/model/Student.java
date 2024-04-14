@@ -26,6 +26,7 @@ public class Student implements UserDetails {
 
     private double progress;
     private List<Lesson> lessonsCompleted;
+    private Lesson currentLesson;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

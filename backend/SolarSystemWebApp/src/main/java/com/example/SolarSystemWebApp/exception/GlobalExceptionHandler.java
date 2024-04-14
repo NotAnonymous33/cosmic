@@ -32,4 +32,10 @@ public class GlobalExceptionHandler {
         ErrorResponse error = new ErrorResponse(HttpStatus.UNAUTHORIZED, e.getLocalizedMessage());
         return new ResponseEntity<>(error, error.getStatus());
     }
+
+    @ExceptionHandler(CurrentLessonNotCompletedException.class)
+    public ResponseEntity ExceptionHandler(CurrentLessonNotCompletedException e) {
+        ErrorResponse error = new ErrorResponse(HttpStatus.NOT_ACCEPTABLE, e.getLocalizedMessage());
+        return new ResponseEntity<>(error, error.getStatus());
+    }
 }
