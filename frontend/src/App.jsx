@@ -1,6 +1,7 @@
 import Scene from "./Scene.jsx";
 import Login from "./auth/Login.jsx";
 import Register from "./auth/Register.jsx";
+import Profile from "./profile/profile.jsx";
 import Info from "./Info.jsx";
 
 import { NavLink, Route, Routes } from "react-router-dom";
@@ -64,6 +65,7 @@ function App() {
         <Route path="/two" element={<Background />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/profile" element={<Profile />} />
         <Route
           path="/game"
           element={

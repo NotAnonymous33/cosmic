@@ -56,4 +56,9 @@ public class StudentController {
         student.setCurrentLesson(lesson);
         return studentRepository.save(student);
     }
+
+    @GetMapping("/student/{username}")
+    public Student getByUsername(@PathVariable String username) throws StudentNotFoundException {
+        return studentService.getStudentByUsername(username);
+    }
 }

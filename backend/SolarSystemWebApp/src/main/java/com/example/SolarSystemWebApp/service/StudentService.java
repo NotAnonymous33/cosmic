@@ -36,8 +36,15 @@ public class StudentService {
         return student;
     }
 
-    public UserDetails getStudentByUsername(String username) throws StudentNotFoundException {
+    public UserDetails getStudentDetailsByUsername(String username) {
         return studentRepository.getStudentByUsername(username);
+    }
+
+    public Student getStudentByUsername(String username) throws StudentNotFoundException {
+        Student student = studentRepository.findStudentByUsername(username);
+        if(student == null)
+            throw new StudentNotFoundException("Student not found!", new Exception());
+        return student;
     }
 
     public List<Lesson> getStudentCompletedLessons(String id) throws StudentNotFoundException {

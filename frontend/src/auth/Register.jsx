@@ -15,6 +15,10 @@ class Register extends React.Component {
     };
   }
 
+  navTo = (path) => {
+    this.props.history.push(path);
+  };
+
   passwordToggle = () => {
     if (this.state.toggleType === "password")
       this.setState({
@@ -49,7 +53,8 @@ class Register extends React.Component {
         .then((result) => {
           toast.success("Successful registration!");
           console.log(result.data);
-          //   localStorage.setItem("studentData", JSON.stringify(result.data));
+          this.navTo("/profile");
+          localStorage.setItem("studentData", JSON.stringify(result.data));
         })
         .catch((error) => {
           toast.error("Something went wrong! Please try again.");
