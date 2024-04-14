@@ -5,7 +5,6 @@ import Profile from "./profile/profile.jsx";
 import Info from "./Info.jsx";
 
 import { NavLink, Route, Routes } from "react-router-dom";
-import Temp from "./Temp.jsx";
 import Background from "./Background.jsx";
 import Game from "./Game.jsx";
 
@@ -19,10 +18,17 @@ function App() {
             <NavLink to="/">Home</NavLink>
           </li>
           <li>
+<<<<<<< HEAD
             <NavLink to="/cards">Lessons</NavLink>
           </li>
           <li>
             <NavLink to="/game">Game</NavLink>
+=======
+            <NavLink to="/cards">Cards</NavLink>
+          </li>
+          <li>
+            <NavLink to="/game">Gravity</NavLink>
+>>>>>>> 7fbf08e57cb3e6bec0c8d3bb533773c131dff873
           </li>
         </ul>
         <ul className="nav-links">
