@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <nav className="navbar">
-        <h1>website name</h1>
+        <h1>Edu-Solar</h1>
         <ul className="nav-links">
           <li>
             <NavLink to="/">Home</NavLink>
