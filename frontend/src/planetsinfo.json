@@ -3,54 +3,54 @@
     "name": "Sun",
     "color": "yellow",
     "gravity": 274,
-    "texturePath": "./texture/Sun2.png"
+    "texturePath": "./textures/Sun2.png"
   },
   {
     "name": "Mercury",
     "color": "gray",
     "gravity": 3.7,
-    "texturePath": "./texture/Mercury.png"
+    "texturePath": "./textures/Mercury.png"
   },
   {
     "name": "Venus",
     "color": "yellow",
     "gravity": 8.9,
-    "texturePath": "./texture/Venues2.webp"
+    "texturePath": "./textures/Venues2.webp"
   },
   {
     "name": "Earth",
     "color": "blue",
     "gravity": 9.8,
-    "texturePath": "./texture/Earth.png"
+    "texturePath": "./textures/Earth.png"
   },
   {
     "name": "Mars",
     "color": "red",
     "gravity": 3.7,
-    "texturePath": "./texture/Mars.png"
+    "texturePath": "./textures/Mars.png"
   },
   {
     "name": "Jupiter",
     "color": "orange",
     "gravity": 24.8,
-    "texturePath": "./texture/jupiter.jpeg"
+    "texturePath": "./textures/jupiter.jpeg"
   },
   {
     "name": "Saturn",
     "color": "brown",
     "gravity": 10.4,
-    "texturePath": "./texture/saturn.jpeg"
+    "texturePath": "./textures/saturn.jpeg"
   },
   {
     "name": "Uranus",
     "color": "blue",
     "gravity": 8.7,
-    "texturePath": "./texture/uranus.webp"
+    "texturePath": "./textures/uranus.webp"
   },
   {
     "name": "Neptune",
     "color": "blue",
     "gravity": 11.0,
-    "texturePath": "./texture/neptune.jpeg"
+    "texturePath": "./textures/neptune.jpeg"
   }
 ]
