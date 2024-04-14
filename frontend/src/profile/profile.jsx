@@ -14,6 +14,12 @@ class Profile extends React.Component {
     window.location.href =
       "https://play.unity.com/mg/other/webgl-builds-400388";
   };
+  handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("studentData");
+    this.setState({ studentData: {} });
+    window.location.href = "http://localhost:5173/login";
+  };
 
   componentDidMount() {
     const studentData = JSON.parse(localStorage.getItem("studentData"));
@@ -39,6 +45,9 @@ class Profile extends React.Component {
         <br />
         <br />
         <button onClick={() => this.handleClick2()}>Learn Solar System</button>
+        <br />
+        <br />
+        <button onClick={() => this.handleLogout()}>Logout</button>
       </div>
     );
   }
