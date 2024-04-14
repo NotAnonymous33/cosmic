@@ -21,6 +21,9 @@ function App() {
             <NavLink to="/cards">Lessons</NavLink>
           </li>
           <li>
+            <NavLink to="/profile">Profile</NavLink>
+          </li>
+          <li>
             <NavLink to="/game">Game</NavLink>
           </li>
           <li>
