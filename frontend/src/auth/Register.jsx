@@ -60,7 +60,17 @@ class Register extends React.Component {
 
   render() {
     return (
-      <div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+          background:
+            "url(https://www.transparenttextures.com/patterns/stardust.png), linear-gradient(to right, #41295a, #2F0743)",
+          backgroundSize: "cover",
+        }}
+      >
         <ToastContainer
           position="bottom-center"
           autoClose={2000}
@@ -68,44 +78,115 @@ class Register extends React.Component {
           newestOnTop={false}
           theme="dark"
         />
-        <h2>Register</h2>
-        <div className="loginBox">
-          <TextField
-            placeholder="Enter your name"
-            value={this.state.name}
-            onChange={(event) => this.onChangeName(event)}
-            style={{
-              color: "black",
-              backgroundColor: "white",
-              borderStyle: "solid",
-              borderColor: "transparent",
-            }}
-          />
+        <div
+          className="loginBox"
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            background: "rgba(0,0,0,0.7)",
+            padding: "20px",
+            borderRadius: "15px",
+          }}
+        >
+          <h2 style={{ color: "white" }}>Register</h2>
           <TextField
             placeholder="Enter username/email..."
             value={this.state.username}
             onChange={(event) => this.onChangeUsername(event)}
             style={{
-              color: "black",
-              backgroundColor: "white",
-              borderStyle: "solid",
-              borderColor: "transparent",
+              color: "white",
+              backgroundColor: "rgba(30, 30, 30, 0.8)",
+              borderStyle: "none",
+              borderRadius: "5px",
+              marginBottom: "10px",
+              width: "250px",
+              padding: "10px",
+              boxShadow: "0 0 5px 1px rgba(252,70,107,1)",
+            }}
+            InputProps={{
+              // <-- This values are for the input (inside the TextField component)
+              disableUnderline: true, // <-- This removes the underline
+              style: {
+                color: "white",
+                fontFamily: "Arial",
+                fontSize: "16px",
+              },
             }}
           />
+
           <TextField
             placeholder="Enter password"
             value={this.state.password}
             type={this.state.toggleType}
             onChange={(event) => this.onChangePassword(event)}
             style={{
-              color: "black",
-              backgroundColor: "white",
-              borderStyle: "solid",
-              borderColor: "transparent",
+              color: "white",
+              backgroundColor: "rgba(30, 30, 30, 0.8)",
+              borderStyle: "none",
+              borderRadius: "5px",
+              width: "250px",
+              padding: "10px",
+              boxShadow: "0 0 5px 1px rgba(252,70,107,1)",
+            }}
+            InputProps={{
+              // <-- This values are for the input (inside the TextField component)
+              disableUnderline: true, // <-- This removes the underline
+              style: {
+                color: "white",
+                fontFamily: "Arial",
+                fontSize: "16px",
+              },
             }}
           />
+          <Button
+            style={{
+              marginTop: "10px",
+              backgroundColor: "rgba(63,94,251,1)",
+              border: "none",
+              borderRadius: "5px",
+              color: "white",
+              padding: "10px 20px",
+              fontSize: "16px",
+              cursor: "pointer",
+              transition: "all 0.3s ease",
+            }}
+            onMouseOver={(e) => {
+              e.target.style.backgroundColor = "rgba(252,70,107,1)";
+            }}
+            onMouseOut={(e) => {
+              e.target.style.backgroundColor = "rgba(63,94,251,1)";
+            }}
+            onClick={() => this.handleSubmit()}
+          >
+            Register
+          </Button>
+          <Button
+            style={{
+              marginTop: "10px",
+              backgroundColor: "rgba(63,94,251,1)",
+              border: "none",
+              borderRadius: "5px",
+              color: "white",
+              padding: "10px 20px",
+              fontSize: "16px",
+              cursor: "pointer",
+              transition: "all 0.3s ease",
+            }}
+            onMouseOver={(e) => {
+              e.target.style.backgroundColor = "rgba(252,70,107,1)";
+            }}
+            onMouseOut={(e) => {
+              e.target.style.backgroundColor = "rgba(63,94,251,1)";
+            }}
+            onClick={() =>
+              (window.location.href = "http://localhost:5173/login")
+            }
+          >
+            Login
+          </Button>
         </div>
-        <Button onClick={() => this.handleSubmit()}>Register</Button>
       </div>
     );
   }
